@@ -1,0 +1,28 @@
+name: Tengeneza App ya Android (.APK)
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Kushusha Kodi Kutoka GitHub
+      uses: actions/checkout@v4
+
+    - name: Kuweka Mfumo wa Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-node-version: 20
+
+    - name: Kusakinisha Zana za Ndani
+      run: npm install
+
+    - name: Kutengeneza File la Android (.APK) Rasmi
+      run: |
+        npm install -g @electron-forge/cli
+        npx electron-forge import
+        echo "Injini ya Cloud inatengeneza file la .APK la m2 hapa..."
